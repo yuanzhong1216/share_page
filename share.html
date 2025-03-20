@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script>
+    // 从网址参数获取要分享的文本（例如 ?text=你好）
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get('text') || '默认内容';
+    // 尝试自动复制到剪贴板
+    navigator.clipboard.writeText(text).then(() => {
+      alert("内容已复制！请打开小红书粘贴发布~");
+    }).catch(() => {
+      prompt("手动复制以下内容：", text); // 自动复制失败时显示输入框
+    });
+  </script>
+</body>
+</html>
